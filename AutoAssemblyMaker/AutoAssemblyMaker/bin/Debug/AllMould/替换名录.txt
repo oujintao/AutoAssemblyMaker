@@ -1,0 +1,7 @@
+regName
+bitName
+modeString
+baseAddr
+bit
+bitMaxValue
+availableValue

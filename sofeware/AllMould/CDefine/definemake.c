@@ -1,0 +1,1 @@
+#define [baseAddr]_[regName]_[modeString] [bitAvailableValue]

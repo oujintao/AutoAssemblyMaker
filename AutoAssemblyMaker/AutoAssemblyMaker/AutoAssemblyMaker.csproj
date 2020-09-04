@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD8AA986-F9D0-4E04-BFFE-2265F8697B4E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AutoAssemblyMaker</RootNamespace>
+    <AssemblyName>AutoAssemblyMaker</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\AAMControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AAMControl.Designer.cs">
+      <DependentUpon>AAMControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CodeCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CodeCheckForm.Designer.cs">
+      <DependentUpon>CodeCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DevInf.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\DevInf.Designer.cs">
+      <DependentUpon>DevInf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DevInfCollectUnit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\DevInfCollectUnit.Designer.cs">
+      <DependentUpon>DevInfCollectUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DevInfInitDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DevInfInitDialog.Designer.cs">
+      <DependentUpon>DevInfInitDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BitFieldInf.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\BitFieldInf.Designer.cs">
+      <DependentUpon>BitFieldInf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegInf.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\RegInf.Designer.cs">
+      <DependentUpon>RegInf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SameDevBaseAddrTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SameDevBaseAddrTable.Designer.cs">
+      <DependentUpon>SameDevBaseAddrTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ValueAndValueName.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ValueAndValueName.Designer.cs">
+      <DependentUpon>ValueAndValueName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="抽象层\FuncMould.cs" />
+    <Compile Include="抽象层\FuncMould_AvailableValue.cs" />
+    <Compile Include="抽象层\ToolString.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\AAMControl.resx">
+      <DependentUpon>AAMControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CodeCheckForm.resx">
+      <DependentUpon>CodeCheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DevInf.resx">
+      <DependentUpon>DevInf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DevInfCollectUnit.resx">
+      <DependentUpon>DevInfCollectUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DevInfInitDialog.resx">
+      <DependentUpon>DevInfInitDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BitFieldInf.resx">
+      <DependentUpon>BitFieldInf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RegInf.resx">
+      <DependentUpon>RegInf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SameDevBaseAddrTable.resx">
+      <DependentUpon>SameDevBaseAddrTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ValueAndValueName.resx">
+      <DependentUpon>ValueAndValueName.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
