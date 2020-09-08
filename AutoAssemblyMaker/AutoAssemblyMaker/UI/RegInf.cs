@@ -47,12 +47,12 @@ namespace AutoAssemblyMaker.UI
         /// <param name="toolString"></param>
         /// <param name="baseAddr"></param>
         /// <returns></returns>
-        public string GenerateCode_RegInf(ToolString toolString,String baseAddr)
+        public string GenerateCode_RegInf(ToolString toolString,String baseAddr,bool multipDevInfTarget)
         {
             string resultCode = "";
             for (int i = 0; i < bitFiledInfSet.Count; i++)
             {
-                resultCode += bitFiledInfSet[i].GenerateAssemblyCode(toolString,baseAddr,regNameTextBox.Text);
+                resultCode += bitFiledInfSet[i].GenerateAssemblyCode(toolString,baseAddr,regNameTextBox.Text, multipDevInfTarget);
             }
             return resultCode;
         }

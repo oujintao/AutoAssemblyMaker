@@ -50,7 +50,7 @@ namespace AutoAssemblyMaker.UI
         /// <param name="baseName"></param>
         /// <param name="regName"></param>
         /// <returns></returns>
-        public string GenerateAssemblyCode(ToolString toolString, string baseName, string regName)
+        public string GenerateAssemblyCode(ToolString toolString, string baseName, string regName,bool multipDevInfTarget)
         {
             string resultCode = "";
             if (bitNameTextBox.Text == "") { resultCode = "有内鬼，没有位域名字"; }
@@ -62,9 +62,20 @@ namespace AutoAssemblyMaker.UI
             else if (setModeRadioButton.Checked && !AnalysisValueAndValueNameTable()) { resultCode = "有内鬼，有效值设置"; }
             else
             {
-                funcMould.SetBaseAddrName(baseName);
-                funcMould.SetRegName(regName);
-                resultCode += funcMould.GenerateAssemblyCode(toolString);
+                if (multipDevInfTarget)
+                {
+
+                    funcMould.SetBaseAddrName(baseName);
+                    funcMould.SetRegName(regName);
+                    resultCode += funcMould.GenerateAssemblyCode(toolString, defineSomeValueCheckBox.Checked, multipDevInfTarget);
+                }
+                else
+                {
+                    funcMould.SetBaseAddrName(baseName);
+                    funcMould.SetRegName(regName);
+                    //resultCode += funcMould.GenerateAssemblyCode(toolString, defineSomeValueCheckBox.Checked, multipDevInfTarget);
+                    funcMould.GenerateAssemblyCode_Define(toolString, defineSomeValueCheckBox.Checked);
+                }
             }
             return resultCode;
         }
@@ -524,7 +535,6 @@ namespace AutoAssemblyMaker.UI
             for (; modeStringIndex < fileContent.Length; modeStringIndex++)
             {
                 AddValueAndValueNameTable();
-                MessageBox.Show(fileContent.Length.ToString());
                 if (GetValueInFileString(fileContent[modeStringIndex]) == "%") valueAndValueNameSet[valueAndValueNameIndex].SetValue("");
                 else valueAndValueNameSet[valueAndValueNameIndex].SetValue(GetValueInFileString(fileContent[modeStringIndex]));
 

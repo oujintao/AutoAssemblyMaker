@@ -88,15 +88,19 @@ namespace AutoAssemblyMaker.UI
                 {
                     for (int j = 0; j < regInfSet.Count; j++)
                     {
-                        resultCode += regInfSet[j].GenerateCode_RegInf(toolString, sameDevBaseAddrTable.devBaseAddrNameSet[i]);
+                        resultCode += regInfSet[j].GenerateCode_RegInf(toolString, sameDevBaseAddrTable.devBaseAddrNameSet[i],true);
                     }
+                }
+                for (int j = 0; j < regInfSet.Count; j++)
+                {
+                    regInfSet[j].GenerateCode_RegInf(toolString, baseAddrNameTextBox.Text, false);
                 }
             }
             else
             {
                 for (int i = 0; i < regInfSet.Count; i++)
                 {
-                    resultCode += regInfSet[i].GenerateCode_RegInf(toolString, baseAddrNameTextBox.Text);
+                    resultCode += regInfSet[i].GenerateCode_RegInf(toolString, baseAddrNameTextBox.Text,true);
                 }
             }
             return resultCode;

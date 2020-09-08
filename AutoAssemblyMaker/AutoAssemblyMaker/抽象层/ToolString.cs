@@ -278,11 +278,25 @@ namespace AutoAssemblyMaker.抽象层
                 }
                 if(seizeReg)
                 {
-                    resultCode += setValue_seize;
+                    if (bitMaxValue[0] == '-')
+                    {
+                        resultCode += setValue_seize.Substring(41);
+                    }
+                    else
+                    {
+                        resultCode += setValue_seize;
+                    }
                 }
                 else
                 {
-                    resultCode += setValue;
+                    if (bitMaxValue[0] == '-')
+                    {
+                        resultCode += setValue_seize.Substring(83);
+                    }
+                    else
+                    {
+                        resultCode += setValue_seize;
+                    }
                 }
                 if (setValueLocalScope)
                 {
@@ -326,6 +340,7 @@ namespace AutoAssemblyMaker.抽象层
         private string RunBackFuncStackPopPart(int writeOrRead, bool seizeReg, int funcType1,int funcType2)
         {
             string resultCode = "";
+            resultCode += '\n';
             if (writeOrRead == 1)
             {
                 resultCode += stackPop1;
@@ -443,7 +458,7 @@ namespace AutoAssemblyMaker.抽象层
         {
             string resultCode = "";
             resultCode += CDefineCode;
-            resultCode = resultCode.Replace("[baseAddr]", regName);
+            resultCode = resultCode.Replace("[baseAddr]", baseName);
             resultCode = resultCode.Replace("[regName]", regName);
             resultCode = resultCode.Replace("[bitAvailableValue]", bitAvailableValue);
             resultCode = resultCode.Replace("[modeString]", modeString);

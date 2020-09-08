@@ -4,4 +4,6 @@ modeString
 baseAddr
 bit
 bitMaxValue
+bitAvailableValue
 availableValue
+modeString

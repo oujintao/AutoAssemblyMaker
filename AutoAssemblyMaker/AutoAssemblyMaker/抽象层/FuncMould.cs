@@ -258,7 +258,7 @@ namespace AutoAssemblyMaker.抽象层
         /// </summary>
         /// <param name="toolString"></param>
         /// <returns></returns>
-        public string GenerateAssemblyCode(ToolString toolString)
+        public string GenerateAssemblyCode(ToolString toolString,bool defineSomeTarget,bool multipDevInfTarget)
         {
             string resultCode = "";
             if (writeOrRead == 2)  //rw
@@ -274,7 +274,7 @@ namespace AutoAssemblyMaker.抽象层
             {
                 resultCode += GenerateAssemblyCode_writeOrRead(toolString, 0);
             }
-            if (setModeType)
+            if (setModeType && defineSomeTarget && !multipDevInfTarget)
             {
                 for (int i = 0; i < setModeType_AvailableValueSet.availableValueSet.Count; i++)
                 {
@@ -282,6 +282,22 @@ namespace AutoAssemblyMaker.抽象层
                 }
             }
             return resultCode;
+        }
+
+        /// <summary>
+        /// 生成宏定义
+        /// </summary>
+        /// <param name="toolString"></param>
+        /// <param name="defineSomeTarget"></param>
+        public void GenerateAssemblyCode_Define(ToolString toolString, bool defineSomeTarget)
+        {
+            if (setModeType && defineSomeTarget)
+            {
+                for (int i = 0; i < setModeType_AvailableValueSet.availableValueSet.Count; i++)
+                {
+                    toolString.GenerateDefineCode(baseAddrName, regName, setModeType_AvailableValueSet.availableValueSet[i], modeStringSet[i]);
+                }
+            }
         }
 
         /// <summary>

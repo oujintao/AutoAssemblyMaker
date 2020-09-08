@@ -1,6 +1,6 @@
-    j [regName]_SetMode_[bitName]_End
+    j [baseAddr]_[regName]_SetMode_[bitName]_End
 
-[regName]_SetMode_Hit:
+[baseAddr]_[regName]_SetMode_Hit:
     slli t2,t2,[bit]
     slli a0,a0,[bit]
 
@@ -13,4 +13,4 @@
 
     sw t1,[regName](t0)
 
-[regName]_SetMode_[bitName]_End:
+[baseAddr]_[regName]_SetMode_[bitName]_End:
